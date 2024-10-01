@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+*,
+body {
+  font-family: "Unbounded" !important;
+}
+
+
+h2 {
+  font-weight: 500 !important;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 500 !important;
+}
+
+
+.ctaBg{
+  background-image: url('/public/images/cta-bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+  color: #EA2024 !important;
+}
+
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed{
+  color: rgb(0, 176, 0) !important
+}
