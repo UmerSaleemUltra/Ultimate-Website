@@ -7,8 +7,10 @@ export default function Step5({ onNext, onPrev }) {
     const handleSubmit = (e) => {
         onNext({});
     };
+    
     return (<div>
         step5
+        
 
         <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Button startIcon={<KeyboardBackspaceIcon />} onClick={onPrev} style={{ gap: 10, background: 'black', color: 'white', margin: '44px 0px 44px' }}>

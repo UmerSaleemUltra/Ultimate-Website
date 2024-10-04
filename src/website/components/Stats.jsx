@@ -10,7 +10,6 @@ const Stats = () => {
             flexDirection:isMobile ?'column': 'row',
             padding: isMobile ?'15px': '2% 10%',
             marginTop:isMobile?'10%': '5%',
-            background: '#fff9f3',
             overflow: 'hidden',
         },
         imageContainer: {

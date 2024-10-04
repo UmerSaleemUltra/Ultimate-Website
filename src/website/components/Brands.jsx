@@ -24,16 +24,18 @@ const Brands = () => {
             padding: '20px 10%', // Use percentages for padding for better responsiveness
             boxSizing: 'border-box',
         },
-        imageWrapper: {
-            display: 'flex',
-            gap: isMobile ? '10px' : '30px', // Smaller gap on mobile
-            marginTop: '20px',
-            marginBottom: '20px',
-            overflowX: 'auto', // Allow horizontal scrolling on overflow
-            whiteSpace: 'nowrap', // Keep everything in the same line
-            scrollBehavior: 'smooth',
-            alignItems: 'center', // Center the images vertically
+            imageWrapper: {
+                display: 'flex',
+                flexDirection: 'row-reverse', // Change to row-reverse for left-to-right scrolling
+                gap: isMobile ? '10px' : '30px',
+                marginTop: '20px',
+                marginBottom: '20px',
+                overflowX: 'auto',
+                whiteSpace: 'nowrap',
+                scrollBehavior: 'smooth',
+                alignItems: 'center',
         },
+        
         image: {
             height: isMobile ? '40px' : '60px', // Set a smaller height for images on mobile
             width: 'auto', // Keep width auto to maintain aspect ratio
@@ -96,30 +98,30 @@ const Brands = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <div style={{ ...styles.imageWrapper, ...styles.hideScrollbar }}>
-                {images.map((src, index) => {
-                    let imageStyle = styles.image; // Default style for most images
+         <div style={styles.container}>
+        <div style={{ ...styles.imageWrapper, ...styles.hideScrollbar }}>
+            {images.slice().reverse().map((src, index) => { // Reverse the images for rendering
+                let imageStyle = styles.image;
 
-                    if (src === "/images/mercury1.jpg") {
-                        imageStyle = styles.mercuryImage; // Larger style for Mercury
-                    } else if (src === "/images/paypal.png") {
-                        imageStyle = styles.paypalImage; // Smaller style for PayPal
-                    }
+                if (src === "/images/mercury1.jpg") {
+                    imageStyle = styles.mercuryImage;
+                } else if (src === "/images/paypal.png") {
+                    imageStyle = styles.paypalImage;
+                }
 
-                    return (
-                        <img
-                            key={src}
-                            src={src}
-                            alt={`Brand ${index}`}
-                            style={imageStyle} // Apply the determined image style
-                            ref={index === images.length - 1 ? lastImageRef : null} // Assign ref to the last image
-                        />
-                    );
-                })}
-            </div>
+                return (
+                    <img
+                        key={src}
+                        src={src}
+                        alt={`Brand ${index}`}
+                        style={imageStyle}
+                        ref={index === images.length - 1 ? lastImageRef : null} // Assign ref to the last image
+                    />
+                );
+            })}
         </div>
-    );
+    </div>
+);
 };
 
 export default Brands;

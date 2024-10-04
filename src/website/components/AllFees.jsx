@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useTheme, useMediaQuery } from '@mui/material';
 
 const AllFees = () => {
@@ -16,26 +16,31 @@ const AllFees = () => {
             overflow: 'hidden',
         },
         imageContainer: {
-            flex: 1, // Allow image container to take up available space
+            flex: 1,
             display: 'flex',
             justifyContent: isMobile ? 'center' : 'flex-start',
             alignItems: 'center',
-            marginBottom: isMobile ? '20px' : '0', // Add space below image on mobile
+            marginBottom: isMobile ? '20px' : '0',
         },
         textContainer: {
-            flex: 1, // Allow text container to take up available space
+            flex: 1,
             textAlign: 'left',
             marginTop: '1%',
-            paddingLeft: isMobile ? '0' : '30px', // Adjust padding for mobile
+            paddingLeft: isMobile ? '0' : '30px',
         },
         heading: {
             fontSize: isMobile ? '20px' : '24px',
+            fontWeight: 'bold',
             marginBottom: '10px',
+            textAlign: isMobile ? 'center' : 'left',
         },
         paragraph: {
-            fontSize: isMobile ? '13px' : '15px',
-            lineHeight: isMobile ? '20px' : '22.64px',
-            marginTop: isMobile ? '10px' : '15px',
+            textAlign: isMobile ? 'center' : 'left',
+            fontSize: '14px',
+            fontWeight: '300',
+            lineHeight: '1.6',
+            marginBottom: '10px',
+            color: '#333', // Softer color for text
         },
         buttonContainer: {
             display: 'flex',
@@ -46,18 +51,19 @@ const AllFees = () => {
             background: '#EA2024',
             color: 'white',
             boxShadow: 'none',
-            padding: '15px 20px',
+            padding: '12px 24px',
             borderRadius: '15px',
-            fontSize: '10px',
+            fontSize: '14px',
+            fontWeight: 'bold', // Make button text bold
             '&:hover': {
-                background: '#d0191f', // Slightly darker on hover
+                background: '#d0191f',
                 boxShadow: 'none',
             },
         },
         image: {
-            width: isMobile ? '90%' : 'auto', // Make image larger on mobile
-            maxWidth: '600px', // Limit max width for larger screens
-            height: 'auto', // Maintain aspect ratio
+            width: isMobile ? '90%' : 'auto',
+            maxWidth: '600px',
+            height: 'auto',
         },
     };
 
@@ -67,19 +73,23 @@ const AllFees = () => {
                 <img
                     src="/images/All-Fees.svg"
                     alt="All Fees"
-                    style={styles.image} // Apply responsive styles directly
+                    style={styles.image}
                 />
             </div>
             <div style={styles.textContainer}>
-                <h3 style={styles.heading}>All fees included</h3>
-                <div style={styles.paragraph}>
+                <Typography variant="h5" component="h3" sx={styles.heading}>
+                    All fees included
+                </Typography>
+                <Typography variant="body1" sx={styles.paragraph}>
                     We understand that starting a business can be a daunting task, especially when it comes to navigating the complex world of government regulations and fees. We're proud to offer a business formation package that includes all necessary government and other fees.
-                </div>
-                <div style={styles.paragraph}>
+                </Typography>
+                <Typography variant="body1" sx={styles.paragraph}>
                     With our comprehensive package, you won't have to worry about unexpected expenses or hidden costs. We take care of all government fees, including state and federal registration fees.
-                </div>
+                </Typography>
                 <div style={styles.buttonContainer}>
-                    <Button variant="contained" sx={styles.startButton}>Explore & Set Up</Button>
+                    <Button variant="contained" sx={styles.startButton}>
+                        Explore & Set Up
+                    </Button>
                 </div>
             </div>
         </div>

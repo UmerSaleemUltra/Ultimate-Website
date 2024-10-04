@@ -245,7 +245,6 @@ const PricingPlans = ({ screen }) => {
         <div style={styles.container}>
             {screen !== 'pricing' && (
                 <>
-                    <img src="/images/Vector 1.svg" alt="Vector Image" style={styles.vectorImage} width={isMobile ? '80%' : ''} />
 
                     <div style={styles.header}>
                         <h3 style={styles.headingPrimary}>Pricing</h3>

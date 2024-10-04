@@ -21,10 +21,11 @@ const Process = () => {
             alignItems: 'center',
             width: '100%',
             marginBottom: '5%',
+            padding: isMobile ? '0 20px' : '0 40px', // Added padding for smaller devices
         },
         heading: {
             fontSize: isMobile ? '28px' : isTablet ? '35px' : '40px',
-            fontWeight: '600', // Heading is bold on all screens
+            fontWeight: '600',
             textAlign: 'center',
             color: 'black',
             margin: isMobile ? '15px' : '20px',
@@ -33,7 +34,7 @@ const Process = () => {
             fontSize: isMobile ? '12px' : '16px',
             textAlign: 'center',
             margin: '0',
-            fontWeight: '400', // Heading 2 is not bold on mobile and larger screens
+            padding: isMobile ? '0 10px' : '0', // Additional padding for mobile
         },
         boxShadowContainer: {
             width: isMobile ? '90%' : '70%',
@@ -57,11 +58,6 @@ const Process = () => {
             flexDirection: 'column',
             textAlign: isMobile ? 'center' : 'left',
         },
-        // Description with font-weight 400 for mobile to make it unbold
-        description: {
-            fontSize: '15px',
-            fontWeight: '400', // Ensure text is not bold on mobile and larger screens
-        },
         timeline: {
             width: 'fit-content',
             fontSize: isMobile ? '13px' : '15px',
@@ -76,7 +72,7 @@ const Process = () => {
         planItem: {
             display: 'flex',
             alignItems: 'center',
-            width: isMobile ? '100%' : '48%', // Full width for mobile
+            width: isMobile ? '100%' : '48%',
             marginBottom: '20px',
         },
         planText: {
@@ -97,6 +93,14 @@ const Process = () => {
         },
         stepImage: {
             width: isMobile ? '100%' : isTablet ? '70%' : 'auto',
+            maxWidth: '100%', // Ensures images don't overflow the container
+            height: 'auto', // Maintain aspect ratio
+        },
+        description: {
+            fontWeight: isMobile ? '300' : '400', // Unbold text for mobile
+            color: '#666',
+            fontSize: '13px',
+            marginBottom: '10px', // Added margin for better spacing
         }
     };
 
@@ -160,7 +164,6 @@ const Process = () => {
                     <div style={styles.contentContainer}>
                         <h4>{step.stepNumber}</h4>
                         <h3 style={{ color: '#EA2024', marginTop: '0' }}>{step.title}</h3>
-                        {/* Description text with adjusted font-weight for mobile */}
                         <div style={styles.description}>{step.description}</div>
                         <div style={styles.timeline}>Time Line: {step.timeline}</div>
                         {step.planItems.length > 0 && (

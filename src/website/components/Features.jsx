@@ -5,6 +5,7 @@ import { useTheme, useMediaQuery } from '@mui/material';
 const Features = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md')); // Additional for tablets
 
     const styles = {
         container: {
@@ -13,14 +14,14 @@ const Features = () => {
             overflow: 'hidden',
             justifyContent: isMobile ? 'center' : 'space-between',
             alignItems: isMobile ? 'center' : 'flex-start',
-            padding: '0 5%',
-            marginTop: '8%',
+            padding: isMobile ? '0 3%' : '0 5%',
+            marginTop: isMobile ? '10%' : '8%',
             boxSizing: 'border-box',
         },
         buttonContainer: {
             display: 'flex',
-            justifyContent: isMobile ? 'center' : 'flex-start', 
-            marginTop: '40px',  // Consistent margin for both mobile and larger screens
+            justifyContent: isMobile ? 'center' : 'flex-start',
+            marginTop: isMobile ? '30px' : '40px',
         },
         startButton: {
             background: '#EA2024',
@@ -34,45 +35,50 @@ const Features = () => {
                 outline: 'none',
                 backgroundColor: '#EA2024',
             },
-            padding: '15px 20px',
+            padding: isMobile ? '12px 16px' : '15px 20px', // Adjusted for mobile
             borderRadius: '15px',
-            fontSize: isMobile ? '12px' : 'inherit', // Adjust font size for mobile
+            fontSize: isMobile ? '12px' : isTablet ? '14px' : 'inherit', // Added tablet font size
+            marginRight: isMobile ? '0' : '20px',
         },
         imageContainer: {
-            marginTop: isMobile ? '20px' : '0', 
+            marginTop: isMobile ? '20px' : '0',
             position: 'relative',
-            width: '100%', // Full width for mobile
-            height: isMobile ? 'auto' : '649px', // Auto height for mobile
+            width: '100%',
+            height: isMobile ? 'auto' : '649px',
         },
         rightTopImage: {
             position: 'absolute',
-            top: '15%',
+            top: isMobile ? '10%' : '15%',
             left: 0,
             zIndex: 2,
-            width: isMobile ? '80%' : 'auto', 
+            width: isMobile ? '80%' : isTablet ? '60%' : 'auto', // Tablet scaling
+            maxWidth: isMobile ? '80%' : '600px',
+            height: 'auto',
         },
         rightBottomImage: {
-            position: isMobile ? 'relative' : 'absolute', // Change to relative for mobile
-            top: isMobile ? '20px' : '5%', // Slight adjustment for mobile
+            position: isMobile ? 'relative' : 'absolute',
+            top: isMobile ? '20px' : '5%',
             left: 0,
             zIndex: 1,
-            width: isMobile ? '80%' : 'auto', 
+            width: isMobile ? '80%' : isTablet ? '60%' : 'auto', // Tablet scaling
+            maxWidth: isMobile ? '80%' : '600px',
+            height: 'auto',
         },
         textContainer: {
-            width: isMobile ? '100%' : '50%', 
-            textAlign: 'left', 
-            padding: isMobile ? '10px' : '100px',
+            width: isMobile ? '100%' : '50%',
+            textAlign: isMobile ? 'center' : 'left',
+            padding: isMobile ? '10px' : isTablet ? '50px' : '100px',
         },
         mainText: {
-            fontSize: isMobile ? '18px' : '28px',
+            fontSize: isMobile ? '18px' : isTablet ? '22px' : '28px',
             fontWeight: 400,
-            lineHeight: isMobile ? '24px' : '34.72px',
+            lineHeight: isMobile ? '24px' : isTablet ? '30px' : '34.72px',
         },
         subText: {
             marginTop: '8%',
-            fontSize: isMobile ? '10px' : '16px',
+            fontSize: isMobile ? '12px' : isTablet ? '14px' : '16px',
             fontWeight: 300,
-            lineHeight: isMobile ? '14px' : '22.68px',
+            lineHeight: isMobile ? '16px' : isTablet ? '20px' : '22.68px',
         },
     };
 
